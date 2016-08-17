@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
         ca-certificates \
         python-dev \
         git-core \
-	python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose && \
+	python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose python-tk && \
     apt-get autoremove --purge -y && \
     apt-get clean && \
     rm -rf /var/cache/apt /var/lib/apt/lists
