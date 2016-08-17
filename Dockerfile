@@ -15,13 +15,10 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
         ca-certificates \
         python-dev \
         git-core \
-	python-matplotlib && \
+	python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose && \
     apt-get autoremove --purge -y && \
     apt-get clean && \
     rm -rf /var/cache/apt /var/lib/apt/lists
 RUN python -c 'import urllib2;exec(urllib2.urlopen("https://bootstrap.pypa.io/get-pip.py").read())' --no-cache-dir --timeout 1000 && \
     pip install --no-cache-dir --timeout 1000 -r "https://raw.githubusercontent.com/douban/tfmesos/master/requirements.txt" && \
     pip install --no-cache-dir --timeout 1000 "git+https://github.com/douban/tfmesos.git@master#egg=tfmesos"
-# RUN echo '[global]\ntimeout = 1000\nindex-url = https://pypi.douban.com/simple\n'\
-#     > /etc/pip.conf && \
-#    pip install --no-cache-dir -i http://pypi.douban.com/simple --trusted-host pypi.douban.com --timeout 1000 matplotlib
